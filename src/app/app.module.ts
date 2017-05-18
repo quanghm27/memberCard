@@ -6,7 +6,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { SignUpPage } from '../pages/signUp/signUp';
+import { LogoutPage } from '../pages/logOut/logOut';
 import { CreateCardPage } from '../pages/card/create';
+import { CardsPage } from '../pages/cardAll/cards';
 import { PayPage } from '../pages/pay/pay';
 
 
@@ -16,8 +19,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
-import { GlobalService } from '../globalService/globalService';
-
 @NgModule({
   declarations: [
     MyApp,
@@ -25,7 +26,10 @@ import { GlobalService } from '../globalService/globalService';
     ListPage,
     LoginPage,
     CreateCardPage,
-    PayPage
+    PayPage,
+    SignUpPage,
+    CardsPage,
+    LogoutPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,10 @@ import { GlobalService } from '../globalService/globalService';
     ListPage,
     LoginPage,
     CreateCardPage,
-    PayPage
+    PayPage,
+    SignUpPage,
+    CardsPage,
+    LogoutPage
   ],
   providers: [
     StatusBar,

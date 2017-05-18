@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Membership cards</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+   <ion-item-sliding *ngFor="let item of dataArray">
+  <!-- (click)="itemTapped($event, item)" -->
+    <button ion-item  >
+      <ion-thumbnail item-left>
+        <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h1 style="text-align:left;float:left;"> {{item.cardCode}} </h1> 
+      <h1 style="text-align:right;float:right;" color="primary"> Points</h1>
+      <div style="clear:both;"></div>
+      <h3 style="text-align:left;float:left;"> Guest name: {{ item.guestName }} </h3>
+      <h1 style="text-align:left;float:right;" color="primary"> {{ item.points }}</h1>
+      <div style="clear:both;"></div>
+
+      <h3 style="text-align:left;float:left;"> Phone number: {{ item.phoneNumber }}</h3>  
+     </button>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(item)">Delete</button>
+      </ion-item-options>
+
+  </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

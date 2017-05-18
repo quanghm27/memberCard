@@ -1,12 +1,3 @@
-import { Injectable } from '@angular/core';
-
-@Injectable()
-export class GlobalService {
-
-  public globalVar: string = '';
-
-  constructor() {
-  	this.globalVar = "";
-  }
-
-}
+export var Shop = {
+	shopId : 1
+};

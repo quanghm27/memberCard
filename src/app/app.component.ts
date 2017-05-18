@@ -7,9 +7,13 @@ import { HttpModule } from '@angular/http';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { SignUpPage } from '../pages/signUp/signUp';
+import { LogoutPage } from '../pages/logOut/logOut';
+
 import { CreateCardPage } from '../pages/card/create';
 import { CardCompletePage } from '../pages/cardComplete/complete';
 import { PayPage } from '../pages/pay/pay';
+import { CardsPage } from '../pages/cardAll/cards';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,8 +32,9 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Login', component: LoginPage },
-      { title: 'Create Card', component: CreateCardPage }
+      { title: 'Create Card', component: CreateCardPage },
+      { title: 'Card lists', component: CardsPage},
+      { title: 'Log out', component: LogoutPage}
     ];
 
   }

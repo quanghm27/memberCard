@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController, LoadingController } from 'io
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
+import { SignUpPage } from '../signUp/signUp';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -66,4 +67,8 @@ export class LoginPage {
             }
         });
     };
+
+    doRedirectRegist() {
+        this.navCtrl.push(SignUpPage);
+    }
 }
