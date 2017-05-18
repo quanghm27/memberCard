@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Pay</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-10>
+                    <h3 text-left>Membership card</h3></ion-col>
+                <ion-col text-center>
+                    <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScan()"> </ion-icon>
+                </ion-col>
+            </ion-row>
+            <ion-row align-items-center>
+                <ion-col>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Card code" [(ngModel)]="cardCode"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row text-right>
+                <ion-col>
+                    <button ion-button small color="light" (click)="doCheckCard()">Check</button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-10>
+                    <h3 text-left>Products</h3>
+                </ion-col>
+                <ion-col text-center>
+                    <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScan()"> </ion-icon>
+                </ion-col>
+            </ion-row>
+            <div *ngFor="let product of products; let idx = index" [attr.data-index]="idx">
+                <ion-row align-items-center>
+                    <ion-col col-10>
+                        <ion-item>
+                            <ion-input id="product_{{$idx}}" type="text" placeholder="Product code" [(ngModel)]="productCodes[idx]"></ion-input>
+                            
+                        </ion-item>
+                    </ion-col>
+                    <ion-col no-padding>
+                        <div text-center>
+                            <ion-icon name="md-add" *ngIf="idx === products.length -1" color="secondary" (click)="doAddProduct()"></ion-icon>
+                            <ion-icon name="md-remove" *ngIf="idx !== products.length -1" color="danger" (click)="doRemoveProduct(product)"></ion-icon>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <ion-row text-right>
+                <ion-col>
+                    <button ion-button small color="light" (click)="doCheckProducts()">Check</button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

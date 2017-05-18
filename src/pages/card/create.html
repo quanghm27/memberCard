@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Create Card</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div *ngIf="cardCode">
+        <div text-center>
+            <ion-card>
+                <h1 margin-top>
+                    {{cardCode }}
+                </h1>
+                <ion-card-content>
+                    <p> Membership Card created successfully! </p>
+                    <p> Card code is display above </p>
+                </ion-card-content>
+            </ion-card>
+            <button ion-button color="primary" (click)="doRedirect()">Go to pay</button>
+        </div>
+    </div>
+    <div *ngIf="!cardCode">
+        <ion-item>
+            <ion-label floating>Guest Name</ion-label>
+            <ion-input type="text" [(ngModel)]="guestName"></ion-input>
+        </ion-item>
+        <ion-item margin-bottom>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input type="text"  [(ngModel)]="phoneNumber"></ion-input>
+        </ion-item>
+        <div text-center>
+          <button ion-button color="primary" (click)="doPostCard()">Regist Member Card</button>
+        </div>
+    </div>
+</ion-content>

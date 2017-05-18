@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div text-center>
+      <h3>{{ shopName }}</h3>
+    </div>
+   
+    <ion-grid>
+        <ion-row>
+            <ion-col col-4 (click)="doRedirectCard()">
+              <div text-center><ion-icon name="md-person-add"></ion-icon></div>
+              <div text-center>Membership Card</div>
+            </ion-col>
+            <ion-col col-4 (click)="doRedirectPay()">
+              <div text-center><ion-icon name="md-card"></ion-icon></div>
+              <div text-center>Pay</div>
+            </ion-col>
+            <ion-col col-4 >
+              <div text-center><ion-icon name="md-stats"></ion-icon></div>
+              <div text-center>View Bills</div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
