@@ -5,7 +5,6 @@ import { Http, Headers } from '@angular/http';
 import { PayPage } from '../pay/pay';
 import 'rxjs/add/operator/map';
 
-
 @Component({
     selector: 'page-card',
     templateUrl: 'create.html',

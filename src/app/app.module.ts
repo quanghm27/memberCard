@@ -11,9 +11,7 @@ import { LogoutPage } from '../pages/logOut/logOut';
 import { CreateCardPage } from '../pages/card/create';
 import { CardsPage } from '../pages/cardAll/cards';
 import { PayPage } from '../pages/pay/pay';
-
-
-
+import { CardEditPage } from '../pages/cardEdit/cardEdit';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +27,8 @@ import { IonicStorageModule } from '@ionic/storage';
     PayPage,
     SignUpPage,
     CardsPage,
-    LogoutPage
+    LogoutPage,
+    CardEditPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +46,8 @@ import { IonicStorageModule } from '@ionic/storage';
     PayPage,
     SignUpPage,
     CardsPage,
-    LogoutPage
+    LogoutPage,
+    CardEditPage
   ],
   providers: [
     StatusBar,

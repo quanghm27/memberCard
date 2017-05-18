@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Edit card</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+	
+	<ion-grid>
+        <ion-row>
+            <ion-col>
+                
+                <ion-card>
+				  <ion-card-header>
+				    <h1> {{ card.cardCode }} </h1>
+				  </ion-card-header>
+				  <ion-card-content>
+				    	Points: {{ card.points }}
+				  </ion-card-content>
+				</ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row >
+            <ion-col>
+                <ion-item>
+                	<ion-label > Guest name </ion-label>
+                    <ion-input text-right  type="text" [(ngModel)]="card.guestName"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row >
+            <ion-col>
+            	<ion-item>
+                	<ion-label text-left > Phone number </ion-label>
+                    <ion-input text-right type="text" [(ngModel)]="card.phoneNumber"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row text-center  >
+        	<ion-col>
+        		<button ion-button small color="primary"  [attr.disabled]="card.guestName == '' || card.phoneNumber == ''  ? '' : null " (click)="doEditCard()">Submit</button>
+        	</ion-col>
+        </ion-row >
+    </ion-grid>
+</ion-content>

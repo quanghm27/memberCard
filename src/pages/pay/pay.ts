@@ -15,14 +15,14 @@ export class PayPage {
     cardCode: string = '';
     productCodes = [];
     visible = true;
-    products = [];
+    private products : Array <{
+        value: string
+    }>;
 
     constructor(public alertCtrl: AlertController) {
-        this.products = [
-            { name: 'elt1' },
-            { name: 'elt2' },
-            { name: 'elt3' },
-        ]
+        this.products = [{
+            value: ''
+        }];
     }
 
     doCheckCard() {
@@ -59,14 +59,15 @@ export class PayPage {
         // TO-DO
     }
 
+
     // method add
     doAddProduct() {
-        this.products.push({ name: 'elt4' });
+        this.products.push({ value: 'elt4' });
     }
 
     // method remove
-    doRemoveProduct(product) {
-        let index = this.products.indexOf(product);
+    doRemoveProduct(item) {
+        let index = this.products.indexOf(item);
         this.products.splice(index, 1);
     }
 }

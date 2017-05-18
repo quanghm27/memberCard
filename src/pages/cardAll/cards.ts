@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
+import { CardEditPage } from '../cardEdit/cardEdit'; 
 
 @Component({
     selector: 'page-cards',
     templateUrl: 'cards.html',
 })
 export class CardsPage {
+
 	private dataArray : Array <{
 		cardId: number,
 		cardCode: String,
@@ -19,7 +21,10 @@ export class CardsPage {
 
 	constructor( public storage : Storage,
 				 public http: Http,
-				 public alertCtrl: AlertController ) {}
+				 public alertCtrl: AlertController,
+				 public loadingCtrl: LoadingController,
+				 public toastCtrl : ToastController,
+				 public navCtrl : NavController ) {}
 
 	ionViewDidLoad() {
 
@@ -78,8 +83,6 @@ export class CardsPage {
 	}
 
 	delete(item) {
-
-		
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
@@ -87,24 +90,41 @@ export class CardsPage {
             cardId :   item.cardId,
         });
 
-        console.log('test ' +data);
-
         const URL = 'http://sale-card.herokuapp.com/card/delete';
+
+        let deleteLoadCtrl = this.loadingCtrl.create({
+            content: 'Deleting ' + item.cardCode + '...',
+        });
+
+		deleteLoadCtrl.present();
 
 		this.http.post(URL, data, { headers: headers }).map(res => res.json()).subscribe(data => {
 
-			console.log('test ' +data);
-
 			if (data.status == '0') {
+				deleteLoadCtrl.dismiss();
 
-				let arlert = this.alertCtrl.create({
-	                title: 'OK',
-	                subTitle: 'Card is deleted'
+				let toastCtrl = this.toastCtrl.create({
+	                message: item.cardCode + ' is deleted successfully!',
+	                position: 'top',
+	                duration: 1500
 	            });
 
-            	arlert.present();
+				toastCtrl.present();
+
+				let index = this.dataArray.indexOf(item);
+				this.dataArray.splice(index, 1);
 			}
+
 		});
 	}
+
+	itemTapped(event, item) {
+		
+		console.log(item);
+    // That's right, we're pushing to ourselves!
+	    this.navCtrl.push(CardEditPage, {
+	      item : item
+	    });
+  }
 
 }

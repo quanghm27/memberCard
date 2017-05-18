@@ -7,19 +7,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <ion-list>
    <ion-item-sliding *ngFor="let item of dataArray">
-  <!-- (click)="itemTapped($event, item)" -->
-    <button ion-item  >
+    <button ion-item (click)="itemTapped($event, item)"  >
       <ion-thumbnail item-left>
         <img src="img/thumbnail-totoro.png">
       </ion-thumbnail>
-      <h1 style="text-align:left;float:left;"> {{item.cardCode}} </h1> 
-      <h1 style="text-align:right;float:right;" color="primary"> Points</h1>
+      <h1 style="text-align:left;float:left;" > {{item.cardCode}} </h1> 
+      <h1 style="text-align:right;float:right;" > Points</h1>
       <div style="clear:both;"></div>
       <h3 style="text-align:left;float:left;"> Guest name: {{ item.guestName }} </h3>
-      <h1 style="text-align:left;float:right;" color="primary"> {{ item.points }}</h1>
+      <h1 style="text-align:left;float:right;" > {{ item.points }}</h1>
       <div style="clear:both;"></div>
 
       <h3 style="text-align:left;float:left;"> Phone number: {{ item.phoneNumber }}</h3>  
