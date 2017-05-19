@@ -10,7 +10,8 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
 
-	private shopName : string;
+	public shopName : string;
+    public shopId : string;
 
     constructor(
     	public navCtrl: NavController,
@@ -20,6 +21,11 @@ export class HomePage {
     	this.storage.get('shopName').then((val)=>{
     		this.shopName = val;
     	});
+
+        // get shopId from local storage
+        this.storage.get('shopId').then((val)=>{
+            this.shopId = val.toString();
+        });
     }
 
     doRedirectPay() {
@@ -27,7 +33,7 @@ export class HomePage {
     }
 
     doRedirectCard() {
-        this.navCtrl.setRoot(CreateCardPage);
+        this.navCtrl.push(CreateCardPage, this.shopId);
     }
 
 

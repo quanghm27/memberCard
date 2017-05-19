@@ -2,16 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HttpModule } from '@angular/http';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { LoginPage } from '../pages/login/login';
-import { SignUpPage } from '../pages/signUp/signUp';
 import { LogoutPage } from '../pages/logOut/logOut';
 
 import { CreateCardPage } from '../pages/card/create';
-import { CardCompletePage } from '../pages/cardComplete/complete';
 import { PayPage } from '../pages/pay/pay';
 import { CardsPage } from '../pages/cardAll/cards';
 

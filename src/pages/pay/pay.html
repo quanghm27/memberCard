@@ -40,18 +40,18 @@
                     <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScan()"> </ion-icon>
                 </ion-col>
             </ion-row>
-            <div *ngFor="let item of products; let idx = index" [attr.data-index]="idx">
+            <div *ngFor="let item of products; let idx = index" >
                 <ion-row align-items-center>
                     <ion-col col-10>
                         <ion-item>
-                            <ion-input id="product_{{$idx}}" type="text" placeholder="Product code" [(ngModel)]="item.value"></ion-input>
+                            <ion-input type="text" placeholder="Product code" [(ngModel)]="item.value"></ion-input>
                             
                         </ion-item>
                     </ion-col>
                     <ion-col no-padding>
                         <div text-center>
                             <ion-icon name="md-add" *ngIf="idx === products.length -1" color="secondary" (click)="doAddProduct()"></ion-icon>
-                            <ion-icon name="md-remove" *ngIf="idx !== products.length -1" color="danger" (click)="doRemoveProduct(item)"></ion-icon>
+                            <ion-icon name="md-remove" *ngIf="idx !== products.length -1" color="danger" (click)="doRemoveProduct(idx)"></ion-icon>
                         </div>
                     </ion-col>
                 </ion-row>
