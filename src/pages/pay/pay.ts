@@ -140,7 +140,7 @@ export class PayPage {
         barcodeScanner.scan().then((result) => {
             if (!result.cancelled) {
                 // when scan ok
-                if (this.products.length == 0 ) {
+                if (this.products[0].value == '' ) {
                     // array empty, set value for item
                     this.products[0].value = result.text ;
                 } else {

@@ -58,7 +58,7 @@ export class CardsPage {
         				cardId: data.data[i].cardId,
 						cardCode: data.data[i].cardCode ,
 						guestName: data.data[i].guestName,
-						phoneNumber : data.data[i].phoneNumber,
+						phoneNumber : data.data[i].phoneNumber.toString(),
 						points : data.data[i].points
         			});
         		}
