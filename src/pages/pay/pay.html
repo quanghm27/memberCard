@@ -12,6 +12,7 @@
             <ion-row>
                 <ion-col col-10>
                     <h3 text-left>Membership card</h3></ion-col>
+
                 <ion-col text-center>
                     <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScan()"> </ion-icon>
                 </ion-col>
@@ -37,7 +38,7 @@
                     <h3 text-left>Products</h3>
                 </ion-col>
                 <ion-col text-center>
-                    <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScan()"> </ion-icon>
+                    <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScanProduct()"> </ion-icon>
                 </ion-col>
             </ion-row>
             <div *ngFor="let item of products; let idx = index" >

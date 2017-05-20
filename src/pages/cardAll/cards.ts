@@ -121,10 +121,9 @@ export class CardsPage {
 	itemTapped(event, item) {
 		
 		console.log(item);
-    // That's right, we're pushing to ourselves!
 	    this.navCtrl.push(CardEditPage, {
 	      item : item
 	    });
-  }
+  	}
 
 }

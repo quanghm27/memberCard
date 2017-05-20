@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -116,9 +117,43 @@ export class PayPage {
     }
 
     doScan() {
-        // TO-DO
+
+        // scan barcode of card
+        let barcodeScanner = new BarcodeScanner();
+        
+        barcodeScanner.scan().then((result) => {
+            if (!result.cancelled) {
+                this.cardCode = result.text;
+            }
+        }, (error) => {
+            console.log('error when scanning cardCode');
+
+        });
+
     }
 
+    doScanProduct() {
+
+        // scan barcode of product
+        let barcodeScanner = new BarcodeScanner();
+        
+        barcodeScanner.scan().then((result) => {
+            if (!result.cancelled) {
+                // when scan ok
+                if (this.products.length == 0 ) {
+                    // array empty, set value for item
+                    this.products[0].value = result.text ;
+                } else {
+                    // array not emoty, add new element
+                    this.products.push({ value: result.text });
+                }
+            }
+        }, (error) => {
+            console.log('error while scanning product');
+
+        });
+
+    }
 
     // method add
     doAddProduct() {
