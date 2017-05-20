@@ -53,7 +53,7 @@ export class LoginPage {
                 loadingMask.dismiss();
                 this.storage.set('shopId',data.data.shopId);
                 this.storage.set('shopName',data.data.shopName);
-                this.navCtrl.setRoot(HomePage, { data: data });
+                this.navCtrl.setRoot(HomePage);
             } else if (data.status === '10') {
                 loadingMask.dismiss();
 

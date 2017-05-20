@@ -1,0 +1,77 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Pay</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+      <ion-row text-center>
+        <ion-col>
+          <h1> Purchase is completed</h1>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h2> Bill description</h2>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-6 text-left>
+          Shop name: <strong> {{shopName}} </strong>
+        </ion-col>
+        <ion-col col-6 text-right>
+          Date: {{billDate}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row >
+        <ion-col col-4>
+          Product name
+        </ion-col>
+        <ion-col col-3>
+          Quantity
+        </ion-col>
+        <ion-col col-3>
+            price
+        </ion-col>
+        <ion-col col-2>
+          Amount
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of billData">
+        <ion-col col-4>
+          {{ item.productName }}
+        </ion-col>
+        <ion-col col-3>
+          {{ item.productQuantity }}
+        </ion-col>
+        <ion-col col-3>
+          {{ item.productPrice }}
+        </ion-col>
+        <ion-col col-2>
+          {{ item.productPrice * item.productQuantity }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col text-right> 
+          total: {{ billTotal }}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col text-center> 
+          <button ion-button color="primary"  (click)="doRedirectHome()" > Go Homepage</button>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+  
+</ion-content>

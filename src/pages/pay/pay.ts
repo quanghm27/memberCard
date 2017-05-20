@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { AlertController, NavParams } from 'ionic-angular';
+import { AlertController, NavParams, LoadingController, NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Http, Headers } from '@angular/http';
+import { PayCompletePage } from '../payComplete/payComplete';
+
 import 'rxjs/add/operator/map';
 
 
@@ -12,49 +14,52 @@ import 'rxjs/add/operator/map';
 })
 export class PayPage {
 
-    checkCardFlg: boolean = true;
-
-    cardCode: string = '';
-
-    payObj = {};
-
+    public cardCode: string = '';
+    public shopId : string;
     private products: Array < {
         value: string
     } > ;
-
+    
     constructor(
-        public alertCtrl: AlertController,
-        public http: Http,
-        public params: NavParams,
-        public storage: Storage
+        public alertCtrl : AlertController,
+        public params : NavParams,
+        public loadingCtrl : LoadingController,
+        public http : Http,
+        public storage : Storage,
+        public navCtrl : NavController
     ) {
         this.products = [{
             value: ''
         }];
-    }
 
-    doCheckCard() {
-
-        if (this.cardCode === '') {
-            let alert = this.createMessage('Error', 'Card code cannot null');
-            alert.present();
-            return;
-        }
-
-        const URL = 'http://sale-card.herokuapp.com/pay/checkCard?cardCode=' + this.cardCode;
-
-        this.http.get(URL).map(res => res.json()).subscribe(data => {
-
-            if (data.status === '7') {
-                let alert = this.createMessage('Error', data.message);
-                alert.present();
-                return;
-            }
-
+        // get shopId from local storage
+        this.storage.get('shopId').then((val)=>{
+            this.shopId = val.toString();
         });
     }
 
-    getshopId(shopId) {
+    // doCheckCard() {
+
+    //     if (this.cardCode === '') {
+    //         let alert = this.createMessage('Error', 'Card code cannot null');
+    //         alert.present();
+    //         return;
+    //     }
+
+    //     const URL = 'http://sale-card.herokuapp.com/pay/checkCard?cardCode=' + this.cardCode;
+
+    //     this.http.get(URL).map(res => res.json()).subscribe(data => {
+
+    //         if (data.status === '7') {
+    //             let alert = this.createMessage('Error', data.message);
+    //             alert.present();
+    //             return;
+    //         }
+
+    //     });
+    // }
+
+    doPay() {
 
         let productArr: Array < {
             productCode: string,
@@ -93,15 +98,46 @@ export class PayPage {
 
         let data = JSON.stringify({
             cardCode: this.cardCode,
-            userId : shopId,
+            userId: this.shopId,
             products: productArr
         })
 
-        console.log(data);
+        //console.log(data);
 
-        this.http.post(URL, data, {headers : headers}).map(res => res.json()).subscribe(data => {
+        let loadingCtrl = this.loadingCtrl.create({
+            content : 'Please wait, work in Progress ...'
+        });
 
-            console.log('data send');
+        loadingCtrl.present();
+        this.http.post(URL, data, { headers: headers }).map(res => res.json()).subscribe(data => {
+
+            loadingCtrl.dismiss();
+            let msgString;
+
+            console.log(data);
+
+            // pay OK
+            if (data.status == '0') {
+                this.navCtrl.setRoot(PayCompletePage);
+                return;
+            }
+
+            // pay NG
+            switch (data.status) {
+                case '7' :
+                    msgString = (data.message + ' : ' + data.data.cardCode);
+                    break;
+
+                default :
+                    let ngProductArr = [];
+                    for (let i = 0; i < data.data.length ; i++) {
+                        ngProductArr.push(' ' + data.data[i].productCode + ' ');
+                    };
+                    msgString = (data.message + ' :' + "\n" + ngProductArr);
+            }
+                
+            let alert = this.createMessage('Error', msgString);
+            alert.present();
         });
     }
 
@@ -116,16 +152,17 @@ export class PayPage {
         return arlert;
     }
 
-    doScan() {
+    doScanCardcode() {
 
         // scan barcode of card
         let barcodeScanner = new BarcodeScanner();
-        
+
         barcodeScanner.scan().then((result) => {
             if (!result.cancelled) {
                 this.cardCode = result.text;
             }
         }, (error) => {
+
             console.log('error when scanning cardCode');
 
         });
@@ -136,13 +173,13 @@ export class PayPage {
 
         // scan barcode of product
         let barcodeScanner = new BarcodeScanner();
-        
+
         barcodeScanner.scan().then((result) => {
             if (!result.cancelled) {
                 // when scan ok
-                if (this.products[0].value == '' ) {
+                if (this.products[0].value == '') {
                     // array empty, set value for item
-                    this.products[0].value = result.text ;
+                    this.products[0].value = result.text;
                 } else {
                     // array not emoty, add new element
                     this.products.push({ value: result.text });
@@ -165,18 +202,21 @@ export class PayPage {
         this.products.splice(index, 1);
     }
 
-    doCheckProducts() {
 
-        let shopId;
+    isDisable() {
 
-        this.storage.ready().then(() => {
+        if (this.cardCode == '' || this.products.every(this.checkProductsEmpty)) {
+            // if card code or products is empty, disable button submit
+            return '';
+        }
 
-             // get value 
-            this.storage.get('shopId').then((val) => {
+        return null;
+    }
 
-               shopId = val.toString();
-               this.getshopId(shopId);
-            })
-        });
+
+    checkProductsEmpty(product) {
+        if (product.value == '') {
+            return true;
+        }
     }
 }

@@ -14,7 +14,7 @@
                     <h3 text-left>Membership card</h3></ion-col>
 
                 <ion-col text-center>
-                    <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScan()"> </ion-icon>
+                    <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScanCardcode()"> </ion-icon>
                 </ion-col>
             </ion-row>
             <ion-row align-items-center>
@@ -24,11 +24,11 @@
                     </ion-item>
                 </ion-col>
             </ion-row>
-            <ion-row text-right>
+            <!-- <ion-row text-right>
                 <ion-col>
                     <button ion-button small color="light" (click)="doCheckCard()">Check</button>
                 </ion-col>
-            </ion-row>
+            </ion-row> -->
         </ion-grid>
     </div>
     <div>
@@ -57,9 +57,9 @@
                     </ion-col>
                 </ion-row>
             </div>
-            <ion-row text-right>
+            <ion-row text-center>
                 <ion-col>
-                    <button ion-button small color="light" (click)="doCheckProducts()">Check</button>
+                    <button ion-button color="default" [attr.disabled]="isDisable()"  (click)="doPay()">submit</button>
                 </ion-col>
             </ion-row>
         </ion-grid>

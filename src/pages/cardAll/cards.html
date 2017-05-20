@@ -9,6 +9,13 @@
 
 <ion-content padding>
   <ion-list>
+    <ion-searchbar>
+    [(ngModel)]=""
+    [showCancelButton]=""
+    (ionInput)=""
+    (ionCancel)="">
+  </ion-searchbar>
+  <h1> Card list </h1>
    <ion-item-sliding *ngFor="let item of dataArray">
     <button ion-item (click)="itemTapped($event, item)"  >
       <ion-thumbnail item-left>

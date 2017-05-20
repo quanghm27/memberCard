@@ -4,12 +4,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { LogoutPage } from '../pages/logOut/logOut';
 
-import { CreateCardPage } from '../pages/card/create';
-import { PayPage } from '../pages/pay/pay';
 import { CardsPage } from '../pages/cardAll/cards';
+import { CreateCardPage } from '../pages/card/create';
+
+import { PayPage } from '../pages/pay/pay';
+import { PayCompletePage } from '../pages/payComplete/payComplete';
+
+
+import { LogoutPage } from '../pages/logOut/logOut';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +21,8 @@ import { CardsPage } from '../pages/cardAll/cards';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = PayPage;
+   rootPage = LoginPage;
+  //rootPage = PayCompletePage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -27,7 +32,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
+      { title: 'Pay', component: PayPage },
       { title: 'Create Card', component: CreateCardPage },
       { title: 'Card lists', component: CardsPage},
       { title: 'Log out', component: LogoutPage}

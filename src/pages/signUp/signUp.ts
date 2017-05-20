@@ -78,4 +78,17 @@ export class SignUpPage {
             }
         });
     };
+
+    isDisable() {
+
+        // check field empty
+        if (this.name == '' || this.email == '' || this.password == '') {
+
+           // case one field is empty, set button submit to disable
+           return '';
+       }
+
+       // case all field are filled, set button submit to active
+       return null;
+    }
 }

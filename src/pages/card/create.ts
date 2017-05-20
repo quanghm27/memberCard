@@ -20,24 +20,15 @@ export class CreateCardPage {
                 public navCtrl: NavController,
                 public alertCtrl: AlertController,
                 public loadingCtrl: LoadingController,
-                public storage: Storage) {}
+                public storage: Storage) {
 
-    getShopIdFromStorage(){
-
-        let shopId;
-
-        this.storage.ready().then(() => {
-
-             // get value 
-            this.storage.get('shopId').then((val) => {
-
-               shopId = val.toString();
-               this.doPostCard(shopId);
-            })
+        // get shopId from local storage
+        this.storage.get('shopId').then((val)=>{
+            this.shopId = val.toString();
         });
     }
 
-    doPostCard(shopId) {
+    doPostCard() {
         // set URL for http service
         const URL = 'http://sale-card.herokuapp.com/card/create';
 
@@ -47,12 +38,12 @@ export class CreateCardPage {
         
         // set data for http service
         let data = JSON.stringify({
-            shopId: shopId,
+            shopId: this.shopId,
             guestName: this.guestName,
             phoneNumber: this.phoneNumber
         });
 
-        console.log(shopId);
+        console.log(this.shopId);
         
         // validate input
         if (this.guestName === '' || this.guestName === '') {
