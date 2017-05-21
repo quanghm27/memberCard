@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Bills</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+  <h1> Bill list </h1>
+    <ion-item-sliding *ngFor="let item of dataArray" >
+       <button ion-item (click)="itemTapped($event, item)"  >
+          <ion-thumbnail item-left>
+            <img src="assets/img/boy.png">
+          </ion-thumbnail>
+          <h1 style="text-align:left;float:left;" > {{item.cardCode}} </h1> 
+          <h3 style="text-align:left;float:right;"> Total: {{ item.total }}</h3>
+          <div style="clear:both;"></div>
+          <h3 style="text-align:left;float:left;"> Date: {{ item.date }}</h3>   
+        </button>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="delete(item)">Delete</button>
+        </ion-item-options>
+    </ion-item-sliding>
+    
+
+  </ion-list>
+
+</ion-content>

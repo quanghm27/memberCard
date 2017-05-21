@@ -15,6 +15,8 @@ import { PayCompletePage } from '../pages/payComplete/payComplete';
 import { LogoutPage } from '../pages/logOut/logOut';
 import { LoginPage } from '../pages/login/login';
 
+import { BillAllPage } from '../pages/billAll/billAll';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -33,9 +35,11 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Pay', component: PayPage },
+      { title: 'View all bills', component: BillAllPage},
       { title: 'Create Card', component: CreateCardPage },
       { title: 'Card lists', component: CardsPage},
       { title: 'Log out', component: LogoutPage}
+      
     ];
 
   }
