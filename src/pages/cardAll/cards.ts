@@ -11,6 +11,8 @@ import { CardEditPage } from '../cardEdit/cardEdit';
 })
 export class CardsPage {
 
+	private shopId : string
+
 	private dataArray : Array <{
 		cardId: number,
 		cardCode: String,
@@ -24,7 +26,12 @@ export class CardsPage {
 				 public alertCtrl: AlertController,
 				 public loadingCtrl: LoadingController,
 				 public toastCtrl : ToastController,
-				 public navCtrl : NavController ) {}
+				 public navCtrl : NavController ) {
+
+		this.storage.get('shopId').then((val) =>{
+			this.shopId = val.toString()
+		})
+	}
 
 	ionViewDidLoad() {
 
@@ -126,4 +133,35 @@ export class CardsPage {
 	    });
   	}
 
+  	private keyWord : string
+
+  	searchCards(event : KeyboardEvent){
+
+  		console.log('start');
+  		let url = 'http://sale-card.herokuapp.com/card/search';
+
+  		let headers = new Headers();
+  		headers.append('Content-Type', 'application/json');
+
+  		let data = JSON.stringify({
+            keyWord :  this.keyWord,
+            shopId : this.shopId
+        });
+
+        this.http.post(url, data, { headers: headers }).map(res => res.json()).subscribe(data => {
+
+        	if (data.status === '0') {
+
+        		for (let i = 0; i < data.data.length; i++) {
+        			this.dataArray.push({
+        				cardId: data.data[i].cardId,
+						cardCode: data.data[i].cardCode ,
+						guestName: data.data[i].guestName,
+						phoneNumber : data.data[i].phoneNumber.toString(),
+						points : data.data[i].points
+        			});
+        		}
+        	}
+        });
+  	}
 }

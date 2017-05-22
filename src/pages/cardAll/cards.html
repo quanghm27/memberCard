@@ -10,9 +10,10 @@
 <ion-content padding>
   <ion-list>
     <ion-searchbar>
-    [(ngModel)]=""
+    [(ngModel)]="keyWord"
     [showCancelButton]=""
-    (ionInput)=""
+    (ionInput)="searchCards($event)"
+    (keyup.enter)="searchCards($event)">
     (ionCancel)="">
   </ion-searchbar>
   <h1> Card list </h1>
