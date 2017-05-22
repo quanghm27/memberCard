@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
+import { BillDetailPage } from '../billDetail/billDetail';
 import 'rxjs/add/operator/map';
+
+
 
 @Component({
     selector: 'page-billAll',
@@ -14,7 +17,8 @@ export class BillAllPage {
 	private dataArray : Array <{
 		date : string,
 		cardCode : string,
-		total : string
+		total : string,
+		billId : string
 	}>;
 
 	private dateArray : Array <{
@@ -53,20 +57,17 @@ export class BillAllPage {
         // call Http service
         this.http.post(URL, data, { headers: headers }).map(res => res.json()).subscribe(data => {
 
-        	console.log(data);
-
         	if (data.status === '12') {
 
-
+ 				console.log(data);
         		for (let i = 0; i < data.data.length; i++) {
     				this.dataArray.push({
     					date : data.data[i].date.toString(),
     					cardCode : data.data[i].infor.cardCode.toString(),
-    					total : data.data[i].infor.total.toString()
+    					total : data.data[i].infor.total.toString(),
+    					billId : data.data[i].infor.billId.toString()
     				});
     			}
-
-        		console.log(this.dataArray);
 
         		// this.dateArray.push({
         		// 	date : this.dataArray[0].date
@@ -144,9 +145,8 @@ export class BillAllPage {
 
 	itemTapped(event, item) {
 		
-		// console.log(item);
-	 //    this.navCtrl.push(CardEditPage, {
-	 //      item : item
-	 //    });
+	    this.navCtrl.push(BillDetailPage, {
+	      item : item
+	    });
   	}
 }

@@ -9,13 +9,13 @@ import { CardsPage } from '../pages/cardAll/cards';
 import { CreateCardPage } from '../pages/card/create';
 
 import { PayPage } from '../pages/pay/pay';
-import { PayCompletePage } from '../pages/payComplete/payComplete';
 
 
 import { LogoutPage } from '../pages/logOut/logOut';
 import { LoginPage } from '../pages/login/login';
 
 import { BillAllPage } from '../pages/billAll/billAll';
+
 
 @Component({
   templateUrl: 'app.html'
