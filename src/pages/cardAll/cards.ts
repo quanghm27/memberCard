@@ -133,21 +133,26 @@ export class CardsPage {
 	    });
   	}
 
-  	private keyWord : string
 
-  	searchCards(event : KeyboardEvent){
+  	searchCards(ev: any){
 
-  		console.log('start');
+  		let val = ev.target.value;
+  		console.log(val);
+
   		let url = 'http://sale-card.herokuapp.com/card/search';
 
   		let headers = new Headers();
   		headers.append('Content-Type', 'application/json');
 
   		let data = JSON.stringify({
-            keyWord :  this.keyWord,
+            keyWord :  val,
             shopId : this.shopId
         });
 
+  		console.log(data);
+
+  		this.dataArray = [];
+  		
         this.http.post(url, data, { headers: headers }).map(res => res.json()).subscribe(data => {
 
         	if (data.status === '0') {
