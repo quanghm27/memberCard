@@ -1,31 +1,24 @@
-<ion-header>
 
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-  <div>
-    <ion-item>
-      <ion-label floating>Email</ion-label>
-      <ion-input type="email"  [(ngModel)]="email"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password"  [(ngModel)]="password"></ion-input>
-    </ion-item>
+<ion-content>
+  <div class="login-background">
+    <div class="login-container">
+        <div class="login-inputs">
+            <ion-item class="login-inputs-item">
+                <ion-label floating>Email</ion-label>
+                <ion-input type="email" [(ngModel)]="email"></ion-input>
+            </ion-item>
+            <ion-item class="login-inputs-item">
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password" [(ngModel)]="password"></ion-input>
+            </ion-item>
+        </div>
+        <div class="login-btn" text-center>
+            <button ion-button small color="primary" (click)="doLogin()" [attr.disable]="email == '' || password == '' ? '' : null">Login</button>
+        </div>
+        <div  class="login-redirect" text-center>
+            <span> Don't have account ?</span> <a (click)="doRedirectRegist()"> Sign up.</a>
+        </div>
+    </div>
   </div>
-
-  <div text-center>
-    <button ion-button small color="primary"  (click)="doLogin()" [attr.disable]="email == '' || password == '' ? '' : null" >Login</button>
-  </div>
-
-  <div text-center >
-    <span> Don't have account ?</span> <a (click)="doRedirectRegist()"> Sign up.</a>
-  </div>
+    
 </ion-content>

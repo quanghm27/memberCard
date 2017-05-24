@@ -1,0 +1,40 @@
+.login-background {
+	height: 100%;
+	width: 100%;
+	background-image: url("../assets/img/login.jpg");
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.login-container {
+	position: absolute;
+	width:100%;
+	top: 200px;
+	background-color: rgba(242, 242, 242, 0.1) ;
+	padding: 20px;
+
+}
+
+.login-inputs {
+
+	&-item{
+		background-color: transparent;
+		/*color: #fefefe;*/
+	}
+}
+
+.login-btn {
+
+	
+	margin: 10px 0px;
+
+}
+
+.login-redirect{
+	
+}
+
+.button-ios-primary {
+	width: 30%;
+	height: 30px;
+}

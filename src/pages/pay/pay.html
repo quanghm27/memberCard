@@ -1,18 +1,17 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="milk">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>Pay</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
     <div>
         <ion-grid>
             <ion-row>
                 <ion-col col-10>
                     <h3 text-left>Membership card</h3></ion-col>
-
                 <ion-col text-center>
                     <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScanCardcode()"> </ion-icon>
                 </ion-col>
@@ -24,11 +23,6 @@
                     </ion-item>
                 </ion-col>
             </ion-row>
-            <!-- <ion-row text-right>
-                <ion-col>
-                    <button ion-button small color="light" (click)="doCheckCard()">Check</button>
-                </ion-col>
-            </ion-row> -->
         </ion-grid>
     </div>
     <div>
@@ -41,12 +35,11 @@
                     <ion-icon class="icon-scan" name="md-qr-scanner" color="dark" (click)="doScanProduct()"> </ion-icon>
                 </ion-col>
             </ion-row>
-            <div *ngFor="let item of products; let idx = index" >
+            <div *ngFor="let item of products; let idx = index">
                 <ion-row align-items-center>
                     <ion-col col-10>
                         <ion-item>
                             <ion-input type="text" placeholder="Product code" [(ngModel)]="item.value"></ion-input>
-                            
                         </ion-item>
                     </ion-col>
                     <ion-col no-padding>
@@ -59,7 +52,7 @@
             </div>
             <ion-row text-center>
                 <ion-col>
-                    <button ion-button color="default" [attr.disabled]="isDisable()"  (click)="doPay()">submit</button>
+                    <button ion-button color="default" [attr.disabled]="isDisable()" (click)="doPay()">submit</button>
                 </ion-col>
             </ion-row>
         </ion-grid>

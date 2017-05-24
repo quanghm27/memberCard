@@ -12,7 +12,6 @@ import { PayPage } from '../pages/pay/pay';
 
 
 import { LogoutPage } from '../pages/logOut/logOut';
-import { LoginPage } from '../pages/login/login';
 
 import { BillAllPage } from '../pages/billAll/billAll';
 
@@ -23,7 +22,7 @@ import { BillAllPage } from '../pages/billAll/billAll';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-   rootPage = HomePage;
+   rootPage = PayPage;
   //rootPage = PayCompletePage;
 
   pages: Array<{title: string, component: any}>;

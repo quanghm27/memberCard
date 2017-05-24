@@ -1,33 +1,27 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Register</ion-title>
-  </ion-navbar>
-
+    <ion-navbar color="milk">
+        <ion-title>Register</ion-title>
+    </ion-navbar>
 </ion-header>
-
-
-<ion-content padding>
-
-  <div>
-    <ion-item>
-      <ion-label floating>Shop name</ion-label>
-      <ion-input type="email"  [(ngModel)]="name"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Email</ion-label>
-      <ion-input type="email"  [(ngModel)]="email"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password"  [(ngModel)]="password"></ion-input>
-    </ion-item>
-  </div>
-
-  <div text-center>
-    <button ion-button small color="primary" (click)="doRegist()" [attr.disable]="isDisable">Submit</button>
-  </div>
-  
+<ion-content>
+   <div class="signUp-container">
+      <div class="signUp-inputs" >
+        <ion-item class="login-inputs-item">
+            <ion-label floating>Shop name</ion-label>
+            <ion-input type="email" [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item class="login-inputs-item">
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item class="login-inputs-item">
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+      </div>
+      <div class="signUp-btn" text-center>
+          <button ion-button small color="primary" (click)="doRegist()" [attr.disable]="isDisable">Submit</button>
+      </div>
+   </div>
+   
 </ion-content>
