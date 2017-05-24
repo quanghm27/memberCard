@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-list>
     <ion-searchbar
       (ionInput)="searchCards($event)">
@@ -16,7 +16,6 @@
     <p>Not exist any card</p>
   </div>
   <div *ngIf="dataArray.length !== 0"> -->
-     <h1> Card list </h1>
      <ion-item-sliding *ngFor="let item of dataArray">
       <button ion-item (click)="itemTapped($event, item)"  >
         <ion-thumbnail item-left>

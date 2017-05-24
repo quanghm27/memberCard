@@ -23,7 +23,7 @@ import { BillAllPage } from '../pages/billAll/billAll';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-   rootPage = LoginPage;
+   rootPage = HomePage;
   //rootPage = PayCompletePage;
 
   pages: Array<{title: string, component: any}>;

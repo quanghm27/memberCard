@@ -6,25 +6,65 @@
         <ion-title>Home</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content padding>
-    <div text-center>
-      <h3>{{ shopName }}</h3>
+<ion-content>
+    <div class="home-header">
+        <div class="home-header-content">
+            <div class="home-header-content-shopName">
+                {{ shopName }}
+            </div>
+            <div class="home-header-content-description">
+                Now that you’ve learned how to internationalize and localize
+            </div>
+        </div>
     </div>
-   
-    <ion-grid>
-        <ion-row>
-            <ion-col col-4 (click)="doRedirectCard()">
-              <div text-center><ion-icon name="md-person-add"></ion-icon></div>
-              <div text-center>Membership Card</div>
-            </ion-col>
-            <ion-col col-4 (click)="doRedirectPay()">
-              <div text-center><ion-icon name="md-card"></ion-icon></div>
-              <div text-center>Pay</div>
-            </ion-col>
-            <ion-col col-4 >
-              <div text-center><ion-icon name="md-stats"></ion-icon></div>
-              <div text-center>View Bills</div>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    
+    <div class="home-body">
+      <div class="home-body-row">
+        <div class="home-body-col">
+          <div class="home-body-btn" (click)="doRedirectCard()">
+            <div text-center>
+                    <ion-icon name="md-person-add" class="home-body-icon"></ion-icon>
+                </div>
+                <div text-center>Create Card</div>
+          </div>
+        </div>
+        <div class="home-body-col">
+          <div class="home-body-btn" >
+            <div text-center>
+                    <ion-icon name="md-card" class="home-body-icon"></ion-icon>
+                </div>
+                <div text-center>Cards list</div>
+          </div>
+        </div>
+      </div>
+      <div class="home-body-row">
+        <div class="home-body-col">
+          <div class="home-body-btn" (click)="doRedirectPay()">
+            <div text-center>
+                    <ion-icon name="md-card" class="home-body-icon"></ion-icon>
+                </div>
+                <div text-center>Pay</div>
+          </div>
+        </div>
+        <div class="home-body-col">
+          <div class="home-body-btn" >
+            <div text-center>
+                    <ion-icon name="md-stats" class="home-body-icon"></ion-icon>
+                </div>
+                <div text-center>View Bills</div>
+          </div>
+        </div>
+      </div>
+      <div class="home-body-row">
+        <div class="home-body-col">
+          <div class="home-body-btn" >
+            <div text-center>
+                    <ion-icon name="logo-steam" class="home-body-icon"></ion-icon>
+                </div>
+                <div text-center>Events</div>
+          </div>
+        </div>
+
+      </div></div>
+
 </ion-content>
