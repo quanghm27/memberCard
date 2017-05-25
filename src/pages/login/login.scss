@@ -1,7 +1,7 @@
 .login-background {
 	height: 100%;
 	width: 100%;
-	background-image: url("../assets/img/login.jpg");
+	background-image: url("../assets/img/Mountain.jpg");
 	background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -10,7 +10,7 @@
 	position: absolute;
 	width:100%;
 	top: 200px;
-	background-color: rgba(242, 242, 242, 0.1) ;
+	background-color: rgba(242, 242, 242, 0.3) ;
 	padding: 20px;
 
 }
@@ -19,7 +19,7 @@
 
 	&-item{
 		background-color: transparent;
-		/*color: #fefefe;*/
+
 	}
 }
 

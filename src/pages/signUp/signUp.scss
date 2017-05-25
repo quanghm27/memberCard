@@ -1,7 +1,15 @@
+.signUp-background {
+	height: 100%;
+	width: 100%;
+	background-image: url("../assets/img/Mountain.jpg");
+	background-size: 100%;
+    background-repeat: no-repeat;
+}
+
 .signUp-container {
 	position: absolute;
-	background-color: rgba(242, 242, 242, 0.1) ;
-	top: 100px;
+	background-color: rgba(242, 242, 242, 0.3) ;
+	top: 155px;
 	width: 100%;
 	padding: 20px;
 }
