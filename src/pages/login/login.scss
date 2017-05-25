@@ -1,40 +1,43 @@
 .login-background {
-	height: 100%;
-	width: 100%;
-	background-image: url("../assets/img/Mountain.jpg");
-	background-size: 100%;
-    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    // background-image: url("../assets/img/Mountain.jpg");
+    // background-size: 100%;
+    //    background-repeat: no-repeat;
 }
 
 .login-container {
-	position: absolute;
-	width:100%;
-	top: 200px;
-	background-color: rgba(242, 242, 242, 0.3) ;
-	padding: 20px;
-
+    position: absolute;
+    width: 100%;
+    top: 200px;
+    // background-color: rgba(242, 242, 242, 0.3) ;
+    padding: 20px;
 }
 
 .login-inputs {
-
-	&-item{
-		background-color: transparent;
-
-	}
+    &-item {
+        background-color: transparent;
+    }
 }
 
 .login-btn {
-
-	
-	margin: 10px 0px;
-
+    margin: 40px 0 20px 0 ;
 }
 
-.login-redirect{
-	
+.login-redirect {}
+
+#login-button {
+    width: 30%;
+    height: 30px;
 }
 
-.button-ios-primary {
-	width: 30%;
-	height: 30px;
+.login-logo {
+    background-image: url("../assets/img/logo.png");
+    width: 185px;
+    height: 124px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 15%;
+    right: 25%;
 }

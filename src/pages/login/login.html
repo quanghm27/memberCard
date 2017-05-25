@@ -1,6 +1,8 @@
 
 <ion-content>
+
   <div class="login-background">
+    <div class="login-logo"></div>
     <div class="login-container">
         <div class="login-inputs">
             <ion-item class="login-inputs-item">
@@ -13,7 +15,7 @@
             </ion-item>
         </div>
         <div class="login-btn" text-center>
-            <button ion-button small color="primary" (click)="doLogin()" [attr.disable]="email == '' || password == '' ? '' : null">Login</button>
+            <button id="login-button" ion-button small color="primary" (click)="doLogin()" [attr.disable]="email == '' || password == '' ? '' : null">Login</button>
         </div>
         <div  class="login-redirect" text-center>
             <span> Don't have account ?</span> <a (click)="doRedirectRegist()"> Sign up.</a>

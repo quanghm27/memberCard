@@ -27026,11 +27026,15 @@ ion-navbar.toolbar {
 }
 
 .scroll-content {
-  background-color: #ffffe6;
+  background-color: #FAFAFA;
 }
 
 .item {
   background-color: transparent;
+}
+
+.button-ios-primary {
+  background-color: #3b5998;
 }
 
 .cards-item {
@@ -27067,7 +27071,6 @@ ion-navbar.toolbar {
 }
 
 .home-body {
-  background-color: #ffffe6;
   width: 100%;
   padding: 10px;
 }
@@ -27086,7 +27089,7 @@ ion-navbar.toolbar {
   height: 40%;
   margin: 10px;
   border: 1px solid #ccc;
-  box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.1);
+  border: 0px 5px 5px 0px rgba(50, 50, 50, 0.1);
 }
 
 .home-body-btn {
@@ -27105,16 +27108,12 @@ ion-navbar.toolbar {
 .login-background {
   height: 100%;
   width: 100%;
-  background-image: url("../assets/img/Mountain.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 .login-container {
   position: absolute;
   width: 100%;
   top: 200px;
-  background-color: rgba(242, 242, 242, 0.3);
   padding: 20px;
 }
 
@@ -27123,12 +27122,23 @@ ion-navbar.toolbar {
 }
 
 .login-btn {
-  margin: 10px 0px;
+  margin: 40px 0 20px 0;
 }
 
-.button-ios-primary {
+#login-button {
   width: 30%;
   height: 30px;
+}
+
+.login-logo {
+  background-image: url("../assets/img/logo.png");
+  width: 185px;
+  height: 124px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 15%;
+  right: 25%;
 }
 
 .icon-scan {
@@ -27142,19 +27152,31 @@ ion-navbar.toolbar {
 .signUp-background {
   height: 100%;
   width: 100%;
-  background-image: url("../assets/img/Mountain.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 .signUp-container {
   position: absolute;
-  background-color: rgba(242, 242, 242, 0.3);
   top: 155px;
   width: 100%;
   padding: 20px;
 }
 
 .signUp-inputs {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.signUp-logo {
+  background-image: url("../assets/img/signup-logo.png");
+  width: 200px;
+  height: 200px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 2%;
+  right: 22%;
+}
+
+#signUp-button {
+  width: 30%;
+  height: 30px;
 }

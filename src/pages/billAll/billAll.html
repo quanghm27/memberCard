@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="milk">
+  <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,10 +7,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-list>
 
-  <h1> Bill list </h1>
     <ion-item-sliding *ngFor="let item of dataArray" >
        <button ion-item (click)="itemTapped($event, item)"  >
           <ion-thumbnail item-left>
