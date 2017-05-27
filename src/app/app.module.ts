@@ -16,6 +16,8 @@ import { PayPage } from '../pages/pay/pay';
 import { PayCompletePage } from '../pages/payComplete/payComplete';
 import { BillAllPage } from '../pages/billAll/billAll';
 import { BillDetailPage } from '../pages/billDetail/billDetail';
+import { EventAddPage } from '../pages/eventAdd/eventAdd';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -35,7 +37,8 @@ import { IonicStorageModule } from '@ionic/storage';
     CardEditPage,
     PayCompletePage,
     BillAllPage,
-    BillDetailPage
+    BillDetailPage,
+    EventAddPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { IonicStorageModule } from '@ionic/storage';
     CardEditPage,
     PayCompletePage,
     BillAllPage,
-    BillDetailPage
+    BillDetailPage,
+    EventAddPage
   ],
   providers: [
     StatusBar,

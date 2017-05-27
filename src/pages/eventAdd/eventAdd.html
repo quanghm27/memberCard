@@ -1,0 +1,130 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Event</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <!-- <div *ngIf="cardCode">
+        <div text-center>
+            <ion-card>
+                <h1 margin-top>
+                    {{cardCode }}
+                </h1>
+                <ion-card-content>
+                    <p> Membership Card created successfully! </p>
+                    <p> Card code is display above </p>
+                </ion-card-content>
+            </ion-card>
+            <button ion-button color="primary" (click)="doRedirect()">Go to pay</button>
+        </div>
+    </div>
+    <div *ngIf="!cardCode">
+        <ion-item>
+            <ion-label floating>Guest Name</ion-label>
+            <ion-input type="text" [(ngModel)]="guestName"></ion-input>
+        </ion-item>
+        <ion-item margin-bottom>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input type="text"  [(ngModel)]="phoneNumber"></ion-input>
+        </ion-item>
+        <div text-center>
+          <button ion-button color="primary" (click)="doPostCard()">Regist Member Card</button>
+        </div>
+    </div> -->
+    <ion-list radio-group [(ngModel)]="eventType" class="event-option">
+        <ion-item class="event-option-item">
+            <ion-label>Type 1</ion-label>
+            <ion-radio value="1" checked="checked"></ion-radio>
+        </ion-item>
+        <ion-item class="event-option-item">
+            <ion-label>Type 2</ion-label>
+            <ion-radio value="2"></ion-radio>
+        </ion-item>
+    </ion-list>
+    <div class="event-inputs event-type-one" *ngIf="eventType === '1'">
+        <div class="event-inputs-name">
+            Bonus for some products
+        </div>
+        <div class="event-inputs-section">
+            <div class="event-inputs-section-header">
+                Duration
+            </div>
+            <div class="event-inputs-section-content">
+                <ion-item>
+                    <ion-label>Start</ion-label>
+                    <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="startDate"></ion-datetime>
+                </ion-item>
+                <ion-item>
+                    <ion-label>End</ion-label>
+                    <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="endDate"></ion-datetime>
+                </ion-item>
+            </div>
+        </div>
+        <div class="event-inputs-section">
+            <div class="event-inputs-section-header">
+                Bonus products
+            </div>
+            <div class="event-inputs-section-content">
+                <div *ngFor="let item of productArray; let idx = index">
+                    <ion-row align-items-center>
+                        <ion-col col-7>
+                            <ion-item>
+                                <ion-input type="text" placeholder="Product code" [(ngModel)]="item.productCode"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-3>
+                            <ion-item>
+                                <ion-input type="text" placeholder="points" [(ngModel)]="item.bonusPoint"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col no-padding>
+                            <div text-center>
+                                <ion-icon name="md-add" *ngIf="idx === productArray.length -1" color="secondary" (click)="doAddProduct()"></ion-icon>
+                                <ion-icon name="md-remove" *ngIf="idx !== productArray.length -1" color="danger" (click)="doRemoveProduct(idx)"></ion-icon>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
+        </div>
+        <div class="btn btn-submit-event" text-center>
+            <button ion-button color="primary" (click)="doPostEvent()">submit</button>
+        </div>
+    </div>
+    <div class="event-inputs event-type-two" *ngIf="eventType === '2'">
+        <div class="event-inputs-name">
+            Bonus for all products
+        </div>
+        <div class="event-inputs-section">
+            <div class="event-inputs-section-header">
+                Duration
+            </div>
+            <div class="event-inputs-section-content">
+                <ion-item>
+                    <ion-label>Start</ion-label>
+                    <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="startDate"></ion-datetime>
+                </ion-item>
+                <ion-item>
+                    <ion-label>End</ion-label>
+                    <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="endDate"></ion-datetime>
+                </ion-item>
+            </div>
+        </div>
+        <div class="event-inputs-section">
+            <div class="event-inputs-section-header">
+                Bonus point
+            </div>
+            <div class="event-inputs-section-content">
+                <ion-item>
+                    <ion-input type="text" placeholder="Enter points" [(ngModel)]="bonusPoint"></ion-input>
+                </ion-item>
+            </div>
+        </div>
+        <div class="btn btn-submit-event" text-center>
+            <button ion-button color="primary" (click)="doPostEvent()">submit</button>
+        </div>
+    </div>
+</ion-content>

@@ -27041,6 +27041,51 @@ ion-navbar.toolbar {
   border-bottom: 2px solid #ccc !important;
 }
 
+.event-option {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0;
+}
+
+.event-option-item {
+  -webkit-flex: l;
+  -ms-flex: l;
+  flex: l;
+}
+
+.event-inputs {
+  padding: 10px;
+}
+
+.event-inputs-name {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.event-inputs-section {
+  margin-bottom: 40px;
+}
+
+.event-inputs-section-header {
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.event-inputs-section-content {
+  background-color: #ffffff;
+}
+
+.datetime {
+  background-color: #e6e6e6;
+}
+
+.btn-submit-event {
+  margin-top: 20px;
+}
+
 .home-header {
   background-image: url("../assets/img/img_mouseover3.jpg");
   background-size: cover;

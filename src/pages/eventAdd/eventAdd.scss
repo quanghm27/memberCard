@@ -1,0 +1,37 @@
+.event-option {
+	display: flex;
+	margin-bottom: 0;
+	&-item {
+		flex: l;
+
+	}
+}
+
+.event-inputs {
+	padding: 10px;
+	&-name {
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+}
+
+.event-inputs-section {
+	margin-bottom:  40px;
+	&-header{
+		font-size: 16px;
+		font-weight: 500;
+		color: #666;
+		margin-bottom: 10px;	
+	}
+	&-content{
+		background-color: #ffffff;
+	}
+}
+
+.datetime {
+	background-color: #e6e6e6;
+}
+
+.btn-submit-event {
+	margin-top: 20px;
+}
