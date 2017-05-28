@@ -27086,6 +27086,106 @@ ion-navbar.toolbar {
   margin-top: 20px;
 }
 
+.item-eventName {
+  font-size: 20px;
+}
+
+.item-duration {
+  font-size: 14px;
+}
+
+.eventData-table {
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.eventData-table-header {
+  font-weight: bold;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.eventData-table-header-index {
+  width: 20%;
+  text-align: center;
+  float: left;
+  line-height: 30px;
+}
+
+.eventData-table-header-product {
+  width: 50%;
+  text-align: center;
+  float: left;
+  border-left: 1px solid #cccccc;
+  line-height: 30px;
+  /*border-bottom: 1px solid #cccccc;*/
+}
+
+.eventData-table-header-points {
+  width: 30%;
+  text-align: center;
+  float: right;
+  border-left: 1px solid #cccccc;
+  line-height: 30px;
+  /*border-bottom: 1px solid #cccccc;	*/
+}
+
+.eventData-table-body {
+  width: 100%;
+  background-color: #ffffff !important;
+  height: 25px;
+}
+
+.eventData-table-body-index {
+  width: 20%;
+  text-align: center;
+  float: left;
+  background-color: #ffffff !important;
+  line-height: 25px;
+}
+
+.eventData-table-body-product {
+  width: 50%;
+  text-align: center;
+  float: left;
+  border-left: 1px solid #cccccc;
+  background-color: #ffffff !important;
+  line-height: 25px;
+}
+
+.eventData-table-body-points {
+  width: 30%;
+  text-align: center;
+  float: right;
+  border-left: 1px solid #cccccc;
+  background-color: #ffffff !important;
+  line-height: 25px;
+}
+
+.clear-fix {
+  clear: both;
+}
+
+#Duration {
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.duration-label {
+  width: 40%;
+  text-align: left;
+  float: left;
+}
+
+.duration-data {
+  width: 60%;
+  text-align: center;
+  float: right;
+}
+
 .home-header {
   background-image: url("../assets/img/img_mouseover3.jpg");
   background-size: cover;

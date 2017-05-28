@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Events</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div>
+        <ion-card>
+            <ion-card-header>
+                <h1> {{ event.eventName }} </h1>
+            </ion-card-header>
+            <ion-card-content>
+                Event type: {{ event.eventType }}
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <div class="event-inputs">
+        <div class="event-inputs-section">
+            <div class="event-inputs-section-header">
+                Duration
+            </div>
+            <div class="event-inputs-section-content"  id="Duration">
+
+                <ion-item>
+                    <div class="duration-label"> Start : </div>
+                    <div  class="duration-data"> {{event.startDate}}</div>
+                </ion-item>
+                <ion-item>
+                    <div class="duration-label"> End:</div>
+                    <div  class="duration-data">  {{event.endDate}}</div>
+                </ion-item>
+
+            </div>
+        </div>
+        <div class="event-inputs-section">
+            <div class="event-inputs-section-header">
+                Bonus products
+            </div>
+            <div class="event-inputs-section-content eventData-table">
+                <div class="eventData-table-header">
+                    <div class="eventData-table-header-index">
+                        No.
+                    </div>
+                    <div class="eventData-table-header-product">
+                        Product code
+                    </div>
+                    <div class="eventData-table-header-points">
+                        Bonus points
+                    </div>
+                </div>
+                <div class="clear-fix"></div>
+               
+                    <div class="eventData-table-body" *ngFor="let item of eventData; let idx = index" >
+                        <div class="eventData-table-body-index">
+                            {{idx + 1}}
+                        </div>
+                        <div class="eventData-table-body-product" *ngIf="item.productCode !== null">
+                            {{item.productCode}}
+                        </div>
+                        <div class="eventData-table-body-product" *ngIf="item.productCode === null">
+                            All product
+                        </div>
+                        <div class="eventData-table-body-points">
+                            {{item.bonusPoint}}
+                        </div>
+                    </div>
+                
+               
+            </div>
+        </div>
+    </div>
+</ion-content>

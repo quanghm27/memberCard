@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -10,17 +10,18 @@ import 'rxjs/add/operator/map';
 })
 export class EventAddPage {
 
-    public shopId: string;
+    public shopId : string;
 
-    public eventType: string;
-    public productArray: Array < {
-        productCode: string,
-        bonusPoint: string
+    public eventType : string;
+    public eventName : string;
+    public productArray : Array < {
+        productCode : string,
+        bonusPoint : string
     } > ;
-    public endDate: string;
-    public startDate: string;
+    public endDate : string;
+    public startDate : string;
 
-    public bonusPoint: string
+    public bonusPoint : string
 
     constructor(
         public http: Http,
@@ -46,6 +47,7 @@ export class EventAddPage {
             data = JSON.stringify({
                 shopId: this.shopId,
                 eventType: this.eventType,
+                eventName: this.eventName,
                 dataArray: this.productArray,
                 startDate: this.startDate,
                 endDate: this.endDate
@@ -54,6 +56,7 @@ export class EventAddPage {
             data = JSON.stringify({
                 shopId: this.shopId,
                 eventType: this.eventType,
+                eventName: this.eventName,
                 bonusPoint: this.bonusPoint,
                 startDate: this.startDate,
                 endDate: this.endDate

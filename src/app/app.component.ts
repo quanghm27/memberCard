@@ -16,6 +16,7 @@ import { LogoutPage } from '../pages/logOut/logOut';
 import { BillAllPage } from '../pages/billAll/billAll';
 
 import { EventAddPage } from '../pages/eventAdd/eventAdd';
+import { EventsPage } from '../pages/eventAll/eventAll';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +24,7 @@ import { EventAddPage } from '../pages/eventAdd/eventAdd';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-   rootPage = EventAddPage;
+   rootPage = EventsPage;
   //rootPage = PayCompletePage;
 
   pages: Array<{title: string, component: any}>;
@@ -39,7 +40,8 @@ export class MyApp {
       { title: 'Create Card', component: CreateCardPage },
       { title: 'Card lists', component: CardsPage},
       { title: 'Log out', component: LogoutPage},
-      { title: 'Add event', component: EventAddPage}
+      { title: 'Add event', component: EventAddPage},
+      { title: 'list event', component: EventsPage}
     ];
 
   }

@@ -50,6 +50,16 @@
         </div>
         <div class="event-inputs-section">
             <div class="event-inputs-section-header">
+                Event name
+            </div>
+            <div class="event-inputs-section-content">
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="eventName" ></ion-input>
+                </ion-item>
+            </div>
+        </div>
+        <div class="event-inputs-section">
+            <div class="event-inputs-section-header">
                 Duration
             </div>
             <div class="event-inputs-section-content">
@@ -97,6 +107,16 @@
     <div class="event-inputs event-type-two" *ngIf="eventType === '2'">
         <div class="event-inputs-name">
             Bonus for all products
+        </div>
+         <div class="event-inputs-section">
+            <div class="event-inputs-section-header">
+                Event name
+            </div>
+            <div class="event-inputs-section-content">
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="eventName" ></ion-input>
+                </ion-item>
+            </div>
         </div>
         <div class="event-inputs-section">
             <div class="event-inputs-section-header">
