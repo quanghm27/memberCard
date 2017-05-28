@@ -1,13 +1,13 @@
 <ion-header>
-    <ion-navbar >
+    <ion-navbar>
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>Home</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content >
-    <div class="home-header" >
+<ion-content>
+    <div class="home-header">
         <div class="home-header-content">
             <div class="home-header-content-shopName">
                 {{ shopName }}
@@ -17,54 +17,52 @@
             </div>
         </div>
     </div>
-    
     <div class="home-body">
-      <div class="home-body-row">
-        <div class="home-body-col">
-          <div class="home-body-btn" (click)="doRedirectCard()">
-            <div text-center>
-                    <ion-icon name="md-person-add" class="home-body-icon"></ion-icon>
+        <div class="home-body-row">
+            <div class="home-body-col">
+                <div class="home-body-btn" (click)="doRedirectCards()" >
+                    <div text-center>
+                        <ion-icon name="md-card" class="home-body-icon "></ion-icon>
+                    </div>
+                    <div text-center>Cards</div>
                 </div>
-                <div text-center>Create Card</div>
-          </div>
-        </div>
-        <div class="home-body-col">
-          <div class="home-body-btn" >
-            <div text-center>
-                    <ion-icon name="md-card" class="home-body-icon"></ion-icon>
+            </div>
+            <div class="home-body-col ">
+                <div class="home-body-btn " (click)="doRedirectCard()" >
+                    <div text-center>
+                        <ion-icon name="md-person-add" class="home-body-icon "></ion-icon>
+                    </div>
+                    <div text-center>Create Card</div>
                 </div>
-                <div text-center>Cards list</div>
-          </div>
+            </div>
         </div>
-      </div>
-      <div class="home-body-row">
-        <div class="home-body-col">
-          <div class="home-body-btn" (click)="doRedirectPay()">
-            <div text-center>
-                    <ion-icon name="md-card" class="home-body-icon"></ion-icon>
+        <div class="home-body-row ">
+            <div class="home-body-col ">
+                <div class="home-body-btn " (click)="doRedirectBills()" >
+                    <div text-center>
+                        <ion-icon name="md-stats" class="home-body-icon "></ion-icon>
+                    </div>
+                    <div text-center>View Bills</div>
                 </div>
-                <div text-center>Pay</div>
-          </div>
-        </div>
-        <div class="home-body-col">
-          <div class="home-body-btn" >
-            <div text-center>
-                    <ion-icon name="md-stats" class="home-body-icon"></ion-icon>
+            </div>
+            <div class="home-body-col ">
+                <div class="home-body-btn" (click)="doRedirectPay()" >
+                    <div text-center>
+                        <ion-icon name="md-card" class="home-body-icon"></ion-icon>
+                    </div>
+                    <div text-center>Pay</div>
                 </div>
-                <div text-center>View Bills</div>
-          </div>
+            </div>
         </div>
-      </div>
-      <div class="home-body-row">
-        <div class="home-body-col">
-          <div class="home-body-btn" >
-            <div text-center>
-                    <ion-icon name="logo-steam" class="home-body-icon"></ion-icon>
+        <div class="home-body-row ">
+            <div class="home-body-col ">
+                <div class="home-body-btn" (click)="doRedirectEvents()" >
+                    <div text-center>
+                        <ion-icon name="logo-steam" class="home-body-icon "></ion-icon>
+                    </div>
+                    <div text-center>Events</div>
                 </div>
-                <div text-center>Events</div>
-          </div>
+            </div>
         </div>
-
-      </div></div>
-
+    </div>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { BillDetailPage } from '../billDetail/billDetail';
@@ -27,9 +27,6 @@ export class BillAllPage {
 
 	constructor( public storage : Storage,
 				 public http: Http,
-				 public alertCtrl: AlertController,
-				 public loadingCtrl: LoadingController,
-				 public toastCtrl : ToastController,
 				 public navCtrl : NavController ) {}
 
 	ionViewDidLoad() {
@@ -64,7 +61,7 @@ export class BillAllPage {
     				this.dataArray.push({
     					date : data.data[i].date.toString(),
     					cardCode : data.data[i].infor.cardCode.toString(),
-    					total : data.data[i].infor.total.toString(),
+    					total : data.data[i].infor.total.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"),
     					billId : data.data[i].infor.billId.toString()
     				});
     			}

@@ -53,7 +53,7 @@ export class BillDetailPage {
 
 					this.billData.push({
 						productName : data.data.billData[i].productName.toString(),
-						productPrice : data.data.billData[i].productPrice.toString(),
+						productPrice : data.data.billData[i].productPrice.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"),
 						productQuantity : data.data.billData[i].productQuantity.toString()
 					});
 				}

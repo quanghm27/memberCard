@@ -10,18 +10,18 @@ import 'rxjs/add/operator/map';
 })
 export class EventAddPage {
 
-    public shopId : string;
+    public shopId: string;
 
-    public eventType : string;
-    public eventName : string;
-    public productArray : Array < {
-        productCode : string,
-        bonusPoint : string
+    public eventType: string;
+    public eventName: string;
+    public productArray: Array < {
+        productCode: string,
+        bonusPoint: string
     } > ;
-    public endDate : string;
-    public startDate : string;
+    public endDate: string;
+    public startDate: string;
 
-    public bonusPoint : string
+    public bonusPoint: string
 
     constructor(
         public http: Http,
@@ -38,6 +38,11 @@ export class EventAddPage {
         this.storage.get('shopId').then((val) => {
             this.shopId = val;
         });
+
+
+        console.log(this.eventName);
+        console.log(this.startDate);
+        console.log(this.endDate);
     }
 
     doPostEvent() {
@@ -103,7 +108,7 @@ export class EventAddPage {
         });
 
 
-        
+
     }
 
     doAddProduct() {
@@ -116,5 +121,39 @@ export class EventAddPage {
     doRemoveProduct(idx) {
         this.productArray.splice(idx, 1);
     }
+
+    isDisableEvent1() {
+
+        if (this.startDate ===  undefined || 
+            this.eventName == undefined || 
+            this.endDate == undefined ||
+            this.productArray.every(this.checkProductsEmpty) ) {
+            // if card code or products is empty, disable button submit
+            return '';
+        }
+
+        return null;
+    }
+
+
+    checkProductsEmpty(product) {
+        if (product.productCode == '' || product.bonusPoint == '') {
+            return true;
+        }
+    }
+
+    isDisableEvent2() {
+
+        if (this.startDate ===  undefined || 
+            this.eventName == undefined || 
+            this.endDate == undefined ||
+            this.bonusPoint === undefined) {
+            // if card code or products is empty, disable button submit
+            return '';
+        }
+
+        return null;
+    }
+
 
 }

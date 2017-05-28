@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, LoadingController, ToastController } from 'ionic-angular';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
-import { CardEditPage } from '../cardEdit/cardEdit'; 
+import { CardEditPage } from '../cardEdit/cardEdit';
+import { CreateCardPage } from '../card/create'; 
 
 @Component({
     selector: 'page-cards',
@@ -23,7 +24,6 @@ export class CardsPage {
 
 	constructor( public storage : Storage,
 				 public http: Http,
-				 public alertCtrl: AlertController,
 				 public loadingCtrl: LoadingController,
 				 public toastCtrl : ToastController,
 				 public navCtrl : NavController ) {
@@ -168,5 +168,9 @@ export class CardsPage {
         		}
         	}
         });
+  	}
+
+  	redirectAddCard(){
+  		this.navCtrl.push(CreateCardPage);
   	}
 }

@@ -27037,8 +27037,38 @@ ion-navbar.toolbar {
   background-color: #3b5998;
 }
 
+.table-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.table-total {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.table-total-content {
+  border-top: 1px solid #cccccc;
+}
+
 .cards-item {
   border-bottom: 2px solid #ccc !important;
+}
+
+.btn-add-item {
+  display: inline-block !important;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  height: 44px;
+}
+
+.btn-add-item-icon {
+  font-weight: bold;
+  font-size: 20px;
+  color: #3b5998;
 }
 
 .event-option {

@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar color="milk">
+    <ion-navbar >
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
@@ -31,7 +31,7 @@
             <ion-input type="text"  [(ngModel)]="phoneNumber"></ion-input>
         </ion-item>
         <div text-center>
-          <button ion-button color="primary" (click)="doPostCard()">Regist Member Card</button>
+          <button ion-button color="primary" (click)="doPostCard()" [attr.disabled]="isDisable()">Regist Member Card</button>
         </div>
     </div>
 </ion-content>

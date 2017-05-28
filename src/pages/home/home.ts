@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 import { PayPage } from '../pay/pay';
 import { CreateCardPage } from '../card/create';
-import { Storage } from '@ionic/storage';
+import { CardsPage } from '../cardAll/cards';
+import { BillAllPage } from '../billAll/billAll';
+import { EventsPage } from '../eventAll/eventAll';
 
 @Component({
     selector: 'page-home',
@@ -28,13 +32,27 @@ export class HomePage {
         });
     }
 
-    doRedirectPay() {
-        this.navCtrl.setRoot(PayPage);
+
+
+    doRedirectCards() {
+        this.navCtrl.push(CardsPage, this.shopId);
     }
+
 
     doRedirectCard() {
         this.navCtrl.push(CreateCardPage, this.shopId);
     }
 
+    doRedirectBills() {
+        this.navCtrl.push(BillAllPage);
+    }
 
+        doRedirectPay() {
+        this.navCtrl.push(PayPage);
+    }
+
+     doRedirectEvents() {
+        this.navCtrl.push(EventsPage);
+    }
+    
 }

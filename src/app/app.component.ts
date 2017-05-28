@@ -10,12 +10,11 @@ import { CreateCardPage } from '../pages/card/create';
 
 import { PayPage } from '../pages/pay/pay';
 
-
+import { LoginPage } from '../pages/login/login';
 import { LogoutPage } from '../pages/logOut/logOut';
 
 import { BillAllPage } from '../pages/billAll/billAll';
 
-import { EventAddPage } from '../pages/eventAdd/eventAdd';
 import { EventsPage } from '../pages/eventAll/eventAll';
 
 @Component({
@@ -24,7 +23,7 @@ import { EventsPage } from '../pages/eventAll/eventAll';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-   rootPage = EventsPage;
+   rootPage = LoginPage;
   //rootPage = PayCompletePage;
 
   pages: Array<{title: string, component: any}>;
@@ -35,13 +34,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
+      { title: 'Bills', component: BillAllPage},
+      { title: 'Cards', component: CardsPage },
+      { title: 'Events', component: EventsPage},
       { title: 'Pay', component: PayPage },
-      { title: 'View all bills', component: BillAllPage},
-      { title: 'Create Card', component: CreateCardPage },
-      { title: 'Card lists', component: CardsPage},
-      { title: 'Log out', component: LogoutPage},
-      { title: 'Add event', component: EventAddPage},
-      { title: 'list event', component: EventsPage}
+      { title: 'Log out', component: LogoutPage}
     ];
 
   }

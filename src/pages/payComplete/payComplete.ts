@@ -13,84 +13,91 @@ import 'rxjs/add/operator/map';
 })
 export class PayCompletePage {
 
-	public shopId : string;
-	public shopName : string;
+    public shopId: string;
+    public shopName: string;
 
-	public billDate : string;
-	public billTotal : string;
-	public billData : Array <{
-		productName : string,
-		productPrice : number,
-		productQuantity: number
-	}>;
+    public billDate: string;
+    public billTotal: string;
+    public billData: Array < {
+        productName: string,
+        productPrice: string,
+        productQuantity: number
+    } > ;
 
-	constructor(
-	 	public navCtrl : NavController,
-	 	public storage : Storage,
-	 	public http : Http
+    constructor(
+        public navCtrl: NavController,
+        public storage: Storage,
+        public http: Http
     ) {
-    	// get shop id form local storage
-     	this.storage.get('shopId').then((val)=>{
-     		this.shopId = val.toString();
-     	});
+        // get shop id form local storage
+        this.storage.get('shopId').then((val) => {
+            this.shopId = val.toString();
+        });
 
-     	// get shop name from local storage
-     	this.storage.get('shopName').then((val)=>{
-     		this.shopName = val.toString();
-     	});
+        // get shop name from local storage
+        this.storage.get('shopName').then((val) => {
+            this.shopName = val.toString();
+        });
     }
 
     ionViewDidLoad() {
 
-    	this.getShopIdFromStorage();
+        this.getShopIdFromStorage();
 
     }
 
     doRedirectHome() {
-    	console.log('1');
-    	this.navCtrl.setRoot(HomePage);
-    	console.log('2');
+        console.log('1');
+        this.navCtrl.setRoot(HomePage);
+        console.log('2');
     }
 
-    getShopIdFromStorage(){
+    getShopIdFromStorage() {
 
-		let shopId;
+        let shopId;
 
-		this.storage.ready().then(() => {
+        this.storage.ready().then(() => {
 
-	         // get value 
-	        this.storage.get('shopId').then((val) => {
+            // get value 
+            this.storage.get('shopId').then((val) => {
 
-	           shopId = val.toString();
-	           this.getBillCompleted(shopId);
-	        })
-    	});
-	}
+                shopId = val.toString();
+                this.getBillCompleted(shopId);
+            })
+        });
+    }
 
 
 
     getBillCompleted(shopId) {
-    	let url = 'http://sale-card.herokuapp.com/bill/complete';
+        let url = 'http://sale-card.herokuapp.com/bill/complete';
 
-    	let header = new Headers();
-    	header.append('Content-Type', 'application/json');
+        let header = new Headers();
+        header.append('Content-Type', 'application/json');
 
-    	let data = JSON.stringify({
-    		shopId : shopId
-    	});
+        let data = JSON.stringify({
+            shopId: shopId
+        });
 
-    	console.log('data: '+ data);
+        console.log('data: ' + data);
 
-    	this.http.post( url, data, {headers : header}).map(res => res.json()).subscribe(data => {
+        this.http.post(url, data, { headers: header }).map(res => res.json()).subscribe(data => {
 
-    		console.log(data);
+            console.log(data);
 
-    		if (data.status == '0') {
-    			console.log('recieve data');
-    			this.billDate = data.data.billDate;
-    			this.billTotal = data.data.billTotal;
-    			this.billData = data.data.billData;
-    		}
-    	});
+            if (data.status == '0') {
+                console.log('recieve data');
+                this.billDate = data.data.billDate;
+                this.billTotal = data.data.billTotal.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+                this.billData = data.data.billData;
+
+                // make price beautiful
+                for (let i = 1; i < this.billData.length; i++) {
+                    this.billData[i].productPrice = this.billData[i].productPrice.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+                }
+            }
+
+
+        });
     }
 }

@@ -3,7 +3,7 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Event</ion-title>
+        <ion-title>Events</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content>
@@ -37,7 +37,7 @@
     <ion-list radio-group [(ngModel)]="eventType" class="event-option">
         <ion-item class="event-option-item">
             <ion-label>Type 1</ion-label>
-            <ion-radio value="1" checked="checked"></ion-radio>
+            <ion-radio value="1" checked></ion-radio>
         </ion-item>
         <ion-item class="event-option-item">
             <ion-label>Type 2</ion-label>
@@ -101,7 +101,7 @@
             </div>
         </div>
         <div class="btn btn-submit-event" text-center>
-            <button ion-button color="primary" (click)="doPostEvent()">submit</button>
+            <button ion-button color="primary" (click)="doPostEvent()" [attr.disabled]="isDisableEvent1()">submit</button>
         </div>
     </div>
     <div class="event-inputs event-type-two" *ngIf="eventType === '2'">
@@ -144,7 +144,7 @@
             </div>
         </div>
         <div class="btn btn-submit-event" text-center>
-            <button ion-button color="primary" (click)="doPostEvent()">submit</button>
+            <button ion-button color="primary" (click)="doPostEvent()" [attr.disabled]="isDisableEvent2()">submit</button>
         </div>
     </div>
 </ion-content>

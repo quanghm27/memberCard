@@ -99,4 +99,15 @@ export class CreateCardPage {
     doRedirect(){
         this.navCtrl.setRoot(PayPage);
     }
+
+
+     isDisable() {
+
+        if (this.guestName == '' || this.phoneNumber == '') {
+            // if card code or products is empty, disable button submit
+            return '';
+        }
+
+        return null;
+    }
 }

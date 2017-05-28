@@ -7,14 +7,9 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <ion-grid>
-      <ion-row text-center>
-        <ion-col>
-          <h1> Purchase is completed</h1>
-        </ion-col>
-      </ion-row>
 
       <ion-row>
         <ion-col>
@@ -27,45 +22,39 @@
           Shop name: <strong> {{shopName}} </strong>
         </ion-col>
         <ion-col col-6 text-right>
-          Purchase in: {{bill.date}}
+          Date: {{bill.date}}
         </ion-col>
       </ion-row>
 
-      <ion-row >
-        <ion-col col-4>
-          <strong>Name</strong>
+      <ion-row class="table-header">
+        <ion-col col-6>
+          Name
         </ion-col>
         <ion-col col-3>
-          <strong>Quantity</strong>
+          Number
         </ion-col>
         <ion-col col-3>
-          <strong>Price</strong>
-        </ion-col>
-        <ion-col col-2>
-          <strong>Amount</strong>
+          Price
         </ion-col>
       </ion-row>
 
-      <ion-row *ngFor="let item of billData">
-        <ion-col col-4>
+      <ion-row *ngFor="let item of billData" class="table-body">
+        <ion-col col-6>
           {{ item.productName }}
         </ion-col>
-        <ion-col col-3>
+        <ion-col col-3 text-center>
           {{ item.productQuantity }}
         </ion-col>
         <ion-col col-3>
           {{ item.productPrice }}
         </ion-col>
-        <ion-col col-2>
-          {{ item.productPrice * item.productQuantity }}
-        </ion-col>
       </ion-row>
 
-      <ion-row>
+      <ion-row class="table-total">
         <ion-col col-8>
           
-        </ion-col>
-        <ion-col col-4 text-center> 
+        </ion-col >
+        <ion-col col-4 text-center class="table-total-content"> 
           total: <strong>{{ bill.total }}</strong>
         </ion-col>
       </ion-row>

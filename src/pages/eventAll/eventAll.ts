@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import { EventDetailPage } from '../eventDetail/eventDetail';
+import { EventAddPage } from '../eventAdd/eventAdd';
 
 @Component({
     selector: 'page-eventAll',
@@ -24,7 +25,9 @@ export class EventsPage {
 
     constructor(public storage: Storage,
     			public http : Http,
-    			public navCtrl: NavController) {}
+    			public navCtrl: NavController) {
+        
+    }
 
 
     ionViewDidLoad() {
@@ -87,5 +90,9 @@ export class EventsPage {
     	this.navCtrl.push(EventDetailPage, {
 	      item : item
 	    });
+    }
+
+    redirectAddEvent(){
+        this.navCtrl.push(EventAddPage);   
     }
 }
