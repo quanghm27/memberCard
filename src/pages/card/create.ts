@@ -43,8 +43,6 @@ export class CreateCardPage {
             phoneNumber: this.phoneNumber
         });
 
-        console.log(this.shopId);
-        
         // validate input
         if (this.guestName === '' || this.guestName === '') {
             // set alert
@@ -67,7 +65,6 @@ export class CreateCardPage {
 
                     loadingMask.dismiss();
                     // set key, value for localStorage
-                    console.log('11');
                     this.cardCode = data.data.cardCode;
                 } else {
                     // TO-DO: switch case for data.status to get error
